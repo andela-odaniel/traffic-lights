@@ -16,5 +16,5 @@ yarn start or npm start
 
 ### Testing the App
 ```shell
-yarn/npm test
+yarn test or npm test
 ```
