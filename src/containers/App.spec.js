@@ -3,11 +3,21 @@ import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
 import sinon from 'sinon';
 
+import App from './App';
+
 describe('Traffic lights at an intersection', () => {
 
-  // it('should have 4 traffic light elements', () => {
-  //
-  // });
+  let wrapper;
+  let fakeApp;
+
+  beforeEach(() => {
+    wrapper = shallow(<App />);
+    fakeApp = mount(<App />);
+  });
+
+  it('should have 4 traffic light elements', () => {
+    expect(wrapper.find('TrafficLight')).to.have.length(4);
+  });
 
   // it('should only be active between 9am and 9:30am', () => {
   //

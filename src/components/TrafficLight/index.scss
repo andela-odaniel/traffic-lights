@@ -1,0 +1,62 @@
+@import '../../styles/01-settings/__imports.scss';
+@import '../../styles/02-tools/__imports.scss';
+
+.trafficLight {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: rem(90px);
+  height: rem(170px);
+  background: lighten(black, 20);
+  border-radius: 12px;
+
+  &.north,
+  &.south {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.north {
+    top: rem(24px);
+  }
+
+  &.south {
+    bottom: rem(24px);
+  }
+
+  &.east,
+  &.west {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &.east {
+    left: rem(24px);
+  }
+
+  &.west {
+    right: rem(24px);
+  }
+
+  &_signal {
+    width: rem(50px);
+    height: rem(50px);
+    border-radius: 50%;
+    background: rgba(white, 0.6);
+    border: 1px solid lighten(black, 10);
+
+    &.stop {
+      background: $signalStop;
+    }
+
+    &.getReady {
+      background: $signalGetReady;
+    }
+
+    &.go {
+      background: $signalGo;
+    }
+  }
+}

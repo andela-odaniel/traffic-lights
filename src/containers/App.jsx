@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header, Footer } from 'components';
+import { Header, Footer, TrafficLight } from 'components';
 
 const siteName = 'Traffic Lights';
 
@@ -16,7 +16,10 @@ class App extends Component {
       <div>
         <Header name={siteName} />
         <main>
-          <p>Main content</p>
+          <TrafficLight direction="north" />
+          <TrafficLight direction="south" />
+          <TrafficLight direction="east" />
+          <TrafficLight direction="west" />
         </main>
         <Footer name={siteName} />
       </div>
