@@ -1,0 +1,15 @@
+/* --------------------------------------------------
+// 08/UTILITIES - VISIBILITY
+// -------------------------------------------------- */
+
+.isVisible {
+  display: block !important;
+}
+
+.isHidden {
+  display: none !important;
+}
+
+.isVisuallyHidden {
+  @include vh;
+}

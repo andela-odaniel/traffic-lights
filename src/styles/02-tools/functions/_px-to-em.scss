@@ -1,0 +1,12 @@
+/* --------------------------------------------------
+// 02/TOOLS/FUNCTIONS - PX TO EM CONVERSION
+// -------------------------------------------------- */
+
+// usage
+// em(24px);
+
+@function em($px-size) {
+  $em-size: $px-size / $font-size-px;
+
+  @return #{$em-size}em;
+}

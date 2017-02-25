@@ -1,0 +1,52 @@
+/* --------------------------------------------------
+// 02/TOOLS/MIXINS - BREAKPOINTS
+// -------------------------------------------------- */
+
+// Usage
+// @include bp(10) {}
+// @include bp(10, max) {}
+
+@mixin bp($breakpoint, $type: min) {
+  @if not map-has-key($breakpoints, $breakpoint) {
+    @warn "No value could be retrieved from `#{$breakpoint}`. " + "Please make sure it is defined in `$breakpoints` map. you noob";
+  }
+
+  @else {
+    @if ($type == "min") {
+      /* stylelint-disable */
+      @media (#{$type}-width: #{rem(map-get($breakpoints, $breakpoint))}) {
+        @content;
+      }
+      /* stylelint-enable */
+    }
+
+    @else {
+      /* stylelint-disable */
+      @media (#{$type}-width: #{rem(map-get($breakpoints, $breakpoint) - 1)}) {
+        @content;
+      }
+      /* stylelint-enable */
+    }
+  }
+}
+
+// Usage
+// @include bpMinMax(10, 20) {}
+
+@mixin bpMinMax($min, $max) {
+  @if not map-has-key($breakpoints, $min) {
+    @warn "No value could be retrieved from min breakpoint `#{$min}`. " + "Please make sure it is defined in `$breakpoints` map. you noob";
+  }
+
+  @else if not map-has-key($breakpoints, $max) {
+    @warn "No value could be retrieved from max breakpoint `#{$max}`. " + "Please make sure it is defined in `$breakpoints` map. you noob";
+  }
+
+  @else {
+    /* stylelint-disable */
+    @media (min-width: #{rem(map-get($breakpoints, $min))}) and (max-width: #{rem(map-get($breakpoints, $max) - 1)}) {
+      @content;
+    }
+    /* stylelint-enable */
+  }
+}

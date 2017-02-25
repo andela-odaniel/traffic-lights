@@ -1,0 +1,14 @@
+/* --------------------------------------------------
+// 02/TOOLS/MIXINS - CLEARFIX
+// -------------------------------------------------- */
+
+// Usage
+// @include clearfix;
+
+@mixin clearfix {
+  &::after {
+    content: "" !important;
+    display: block !important;
+    clear: both !important;
+  }
+}

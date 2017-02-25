@@ -1,0 +1,11 @@
+@import '../../styles/01-settings/__imports.scss';
+@import '../../styles/02-tools/__imports.scss';
+
+.siteHeader {
+  padding: 0 $gutter;
+  border-bottom: 1px solid $borders;
+
+  &_name {
+    @include vr(18px, 2, 0);
+  }
+}

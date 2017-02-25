@@ -1,0 +1,20 @@
+/* --------------------------------------------------
+// 03/BASE - NORMALISE GROUPING
+// -------------------------------------------------- */
+
+figcaption,
+figure,
+main {
+  display: block;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+pre {
+  font-family: monospace;
+  font-size: 1em;
+}

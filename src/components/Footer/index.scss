@@ -1,0 +1,11 @@
+@import '../../styles/01-settings/__imports.scss';
+@import '../../styles/02-tools/__imports.scss';
+
+.siteFooter {
+  padding: 0 $gutter;
+  border-top: 1px solid $borders;
+
+  &_copyright {
+    @include vr(14px, 1, 0);
+  }
+}

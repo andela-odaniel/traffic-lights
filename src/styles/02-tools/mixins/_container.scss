@@ -1,0 +1,14 @@
+/* --------------------------------------------------
+// 02/TOOLS/MIXINS - CONTAINER
+// -------------------------------------------------- */
+
+// Usage
+// @include container;
+
+@mixin container {
+  padding-left: $rhythm / 2;
+  padding-right: $rhythm / 2;
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+}

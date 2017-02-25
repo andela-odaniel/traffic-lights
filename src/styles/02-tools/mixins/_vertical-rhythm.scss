@@ -1,0 +1,16 @@
+/* --------------------------------------------------
+// 02/TOOLS/MIXINS - VERTICAL RHYTHM
+// -------------------------------------------------- */
+
+// Usage
+// @include vr(20px, 1, 1); //this gives a font size of 20px, a line height multiplier of 1 and margin bottom of default rhythm.
+// @include vr(20px, 2, 2); // this gives a font size of 20px, a line height multiplier of 2 and a double margin bottom.
+
+@mixin vr($size, $multiplier: 1, $margin-bottom: null) {
+  font-size: ($size / $font-size-px) * 1rem;
+  line-height: ceil($size / $line-height-px) * (($line-height-px * $multiplier) / $size);
+
+  @if ($margin-bottom != null) {
+    margin-bottom: $rhythm * $margin-bottom;
+  }
+}

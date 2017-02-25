@@ -1,0 +1,21 @@
+/* --------------------------------------------------
+// 03/BASE - NORMALISE EMBEDDED
+// -------------------------------------------------- */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+img {
+  border-style: none;
+}
+
+img[width],
+img[height] {
+  max-width: none;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}

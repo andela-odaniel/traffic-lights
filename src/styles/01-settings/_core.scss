@@ -1,0 +1,25 @@
+/* --------------------------------------------------
+// 01/SETTINGS - CORE VARIABLES
+// -------------------------------------------------- */
+
+// $font-url              : '';
+
+$font-size-px           : 16px;
+$line-height-px         : $font-size-px * 1.5;
+
+// FONT SETTINGS (GLOBAL)
+$font-family           : sans-serif;
+$font-size             : 100%;
+$line-height           : $line-height-px / $font-size-px;
+
+// HEADINGS
+$heading-font-family   : inherit;
+$heading-font-weight   : 700;
+
+// FONT FAMILY ALTERNATIVES
+$font-family-alt       : Cambria, Georgia, Times, "Times New Roman";
+$font-family-code      : Monaco, Courier New, monospace;
+
+// SPACINGS
+$rhythm                : $line-height-px / $font-size-px * 1rem;
+$gutter                : 20px / $font-size-px * 1rem;

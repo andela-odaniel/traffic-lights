@@ -1,9 +1,9 @@
 {
-  "name": "traffic-signals",
+  "name": "traffic-lights",
   "version": "1.0.0",
-  "description": "Traffic signals at an intersection",
+  "description": "Traffic lights at an intersection",
   "main": "src/index.jsx",
-  "repository": "https://github.com/lmarzy/traffic-signals.git",
+  "repository": "https://github.com/lmarzy/traffic-lights.git",
   "author": "Lee Marsden",
   "license": "MIT",
   "scripts": {
