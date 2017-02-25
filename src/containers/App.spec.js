@@ -19,9 +19,9 @@ describe('Traffic lights at an intersection', () => {
     expect(wrapper.find('TrafficLight')).to.have.length(4);
   });
 
-  // it('should only be active between 9am and 9:30am', () => {
-  //
-  // });
+  it('should only be active between 9am and 9:30am', () => {
+    expect(fakeApp.state().isActive).to.equal(false);
+  });
   //
   // it('should change lights every 5 minutes while active', () => {
   //

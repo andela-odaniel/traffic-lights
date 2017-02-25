@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import { Header, Footer, TrafficLight } from 'components';
+import consts from '../consts';
 
 const siteName = 'Traffic Lights';
 
 class App extends Component {
   constructor() {
     super();
-    this.setState = {
-      val: 0,
+    this.state = {
+      isActive: false,
+      startHour: consts.startHour,
+      startMin: consts.startMin,
+      endHour: consts.endHour,
+      endMin: consts.endMin,
     };
   }
 
