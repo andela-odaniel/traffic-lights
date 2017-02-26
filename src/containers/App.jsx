@@ -8,18 +8,8 @@ const moment = extendMoment(Moment);
 const startDate = new Date();
 const endDate = new Date();
 
-console.log(startDate, 'startDate', 'before');
-console.log(startDate, 'endDate', 'before');
-
 startDate.setHours(consts.startHour, consts.startMinute, '00', '00');
 endDate.setHours(consts.endHour, consts.endMinute, '00', '00');
-
-/**
- * These calls to setHours modify the values of startDate and endDate
- */
-
-console.log(startDate, 'startDate', 'after');
-console.log(startDate, 'endDate', 'after');
 
 const siteName = 'Traffic Lights';
 
@@ -158,7 +148,9 @@ class App extends Component {
           }),
         });
         break;
+      // eslint-disable-next-line no-case-declarations
       case 'getReady':
+        const otherPairId = pairId === 'pair1' ? 'pair2' : 'pair1';
         this.setState({
           trafficLights: Object.assign({}, this.state.trafficLights, {
             [pairId]: {
@@ -166,8 +158,12 @@ class App extends Component {
               getReady: consts.lightStates.ON,
               go: consts.lightStates.OFF,
             },
+            [otherPairId]: Object.assign({}, this.state.trafficLights[otherPairId], {
+              getReady: consts.lightStates.ON,
+            }),
           }),
         });
+        console.log(this.state);
         break;
       case 'go':
         this.setState({

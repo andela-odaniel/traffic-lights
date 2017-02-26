@@ -35,12 +35,13 @@ describe('Traffic lights at an intersection', () => {
     fakeAppInstance.isActive = true;
     fakeAppInstance.getReady(2);
     expect(App.prototype.getReady).to.have.property('callCount', 1);
+    expect(fakeApp.state().trafficLights.pair1.getReady).to.be.true;
     expect(fakeApp.state().trafficLights.pair2.getReady).to.be.true;
     expect(fakeApp.state().trafficLights.pair2.stop).to.be.false;
     expect(fakeApp.state().trafficLights.pair2.go).to.be.false;
   });
 
-  it('should switch other pair lights to red  on go', () => {
+  it('should switch other pair lights to red on go', () => {
     const fakeAppInstance = fakeApp.instance();
     fakeAppInstance.isActive = true;
     fakeAppInstance.go(2);
