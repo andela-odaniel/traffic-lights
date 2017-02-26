@@ -25,6 +25,7 @@ class App extends Component {
     this.isActive = false;
     this.yellowLightDuration = consts.yellowLightDuration;
     this.trafficLightDuration = consts.trafficLightDuration;
+    this.pollTimer = consts.pollTimer;
     this.state = {
       activePair: 1,
       trafficLights: {
@@ -49,7 +50,7 @@ class App extends Component {
       } else if (!App.shouldbeActive() && this.isActive) {
         this.stopApp();
       }
-    }, 1000);
+    }, this.pollTimer);
   }
 
   componentWillUnmount() {
