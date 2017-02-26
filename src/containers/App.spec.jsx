@@ -6,7 +6,6 @@ import sinon from 'sinon';
 import App from './App';
 
 describe('Traffic lights at an intersection', () => {
-
   let wrapper;
   let fakeApp;
 
@@ -22,6 +21,7 @@ describe('Traffic lights at an intersection', () => {
   it('should only be active between 9am and 9:30am', () => {
     expect(fakeApp.state().isActive).to.equal(false);
   });
+
   //
   // it('should change lights every 5 minutes while active', () => {
   //

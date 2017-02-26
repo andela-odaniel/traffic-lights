@@ -1,8 +1,11 @@
 {
   parser: "babel-eslint",
   extends: "airbnb",
+  rules: {
+  },
   env: {
-    browser: true
+    browser: true,
+    jasmine: true,
   },
   settings: {
     'import/resolver': {
