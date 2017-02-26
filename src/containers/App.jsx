@@ -153,11 +153,9 @@ class App extends Component {
         const otherPairId = pairId === 'pair1' ? 'pair2' : 'pair1';
         this.setState({
           trafficLights: Object.assign({}, this.state.trafficLights, {
-            [pairId]: {
-              stop: consts.lightStates.OFF,
+            [pairId]: Object.assign({}, this.state.trafficLights[pairId], {
               getReady: consts.lightStates.ON,
-              go: consts.lightStates.OFF,
-            },
+            }),
             [otherPairId]: Object.assign({}, this.state.trafficLights[otherPairId], {
               getReady: consts.lightStates.ON,
             }),
@@ -176,7 +174,6 @@ class App extends Component {
         });
         break;
       default:
-
     }
   }
 
