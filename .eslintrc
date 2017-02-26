@@ -2,10 +2,12 @@
   parser: "babel-eslint",
   extends: "airbnb",
   rules: {
+    'no-unused-expressions': 'warn'
   },
   env: {
     browser: true,
     jasmine: true,
+    mocha: true,
   },
   settings: {
     'import/resolver': {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Moment from 'moment';
 import { extendMoment } from 'moment-range';
-import { CronJob } from 'cron';
 import { Header, Footer, TrafficLight } from 'components';
 import consts from '../consts';
 
@@ -9,27 +8,34 @@ const moment = extendMoment(Moment);
 const startDate = new Date();
 const endDate = new Date();
 
+console.log(startDate, 'startDate', 'before');
+console.log(startDate, 'endDate', 'before');
+
+startDate.setHours(consts.startHour, consts.startMinute, '00', '00');
+endDate.setHours(consts.endHour, consts.endMinute, '00', '00');
+
 /**
  * These calls to setHours modify the values of startDate and endDate
  */
-const range = moment.range(startDate.setHours(consts.startHour, consts.startMinute, '00', '00'),
-  endDate.setHours(consts.endHour, consts.endMinute, '00', '00'));
+
+console.log(startDate, 'startDate', 'after');
+console.log(startDate, 'endDate', 'after');
 
 const siteName = 'Traffic Lights';
 
 class App extends Component {
 
   static shouldbeActive() {
-    return moment().within(range);
+    return moment().isBetween(startDate, endDate);
   }
 
   constructor(props) {
     super(props);
     this.interval = null;
+    this.isActive = false;
     this.yellowLightDuration = consts.yellowLightDuration;
     this.trafficLightDuration = consts.trafficLightDuration;
     this.state = {
-      isActive: false,
       activePair: 1,
       trafficLights: {
         pair1: {
@@ -47,14 +53,13 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.startCronJobs();
-    /**
-     * If we start the app while already in the range
-     * the traffic lights should start
-     */
-    if (App.shouldbeActive() && !this.isActive) {
-      this.startApp();
-    }
+    setInterval(() => {
+      if (App.shouldbeActive() && !this.isActive) {
+        this.startApp();
+      } else if (!App.shouldbeActive() && this.isActive) {
+        this.stopApp();
+      }
+    }, 1000);
   }
 
   componentWillUnmount() {
@@ -77,26 +82,6 @@ class App extends Component {
       this.changeState(`pair${otherPairId}`, 'stop');
       this.setState({ activePair: pairId });
     }
-  }
-
-  startCronJobs() {
-    // eslint-disable-next-line no-unused-vars
-    const startJob = new CronJob(startDate,
-    () => {
-      this.startApp();
-    }, null,
-    true, /* Start the job right now */
-    null, /* Time zone of this job. */
-    );
-
-    // eslint-disable-next-line no-unused-vars
-    const endJob = new CronJob(endDate,
-    () => {
-      this.stopApp();
-    }, null,
-    true, /* Start the job right now */
-    null, /* Time zone of this job. */
-    );
   }
 
   startApp() {
