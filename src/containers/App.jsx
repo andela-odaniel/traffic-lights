@@ -163,7 +163,6 @@ class App extends Component {
             }),
           }),
         });
-        console.log(this.state);
         break;
       case 'go':
         this.setState({
